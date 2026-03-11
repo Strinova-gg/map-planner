@@ -1,0 +1,28 @@
+{
+  "name": "@map-planner/storybook",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "storybook": "storybook dev -p 6006 --config-dir .storybook",
+    "build-storybook": "storybook build --config-dir .storybook -o dist/storybook",
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@map-planner/core": "workspace:*",
+    "@map-planner/ui": "workspace:*",
+    "@storybook/addon-a11y": "^8.6.12",
+    "@storybook/addon-docs": "^8.6.12",
+    "@storybook/addon-themes": "^8.6.12",
+    "@storybook/react": "^8.6.12",
+    "@storybook/react-vite": "^8.6.12",
+    "@tailwindcss/vite": "^4.0.0",
+    "storybook": "^8.6.12",
+    "typescript": "^5",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "konva": "^9.3.20",
+    "react-konva": "^19.2.3"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "@map-planner/core",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.ts"
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "dexie": "^4.0.10",
+    "nanoid": "^5.0.9",
+    "xstate": "^5.28.0"
+  },
+  "devDependencies": {
+    "typescript": "^5"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@map-planner/ui": [
+        "../../libs/ui/src/index.ts"
+      ],
+      "@map-planner/ui/*": [
+        "../../libs/ui/src/*"
+      ],
+      "@map-planner/core": [
+        "../../libs/core/src/index.ts"
+      ]
+    },
+    "jsx": "preserve"
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
+}

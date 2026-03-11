@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "paths": {
+      "@map-planner/ui": ["../../libs/ui/src/index.ts"],
+      "@map-planner/ui/*": ["../../libs/ui/src/*"],
+      "@map-planner/core": ["../../libs/core/src/index.ts"]
+    }
+  },
+  "include": ["src", ".storybook"],
+  "exclude": ["node_modules"]
+}

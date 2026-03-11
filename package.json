@@ -1,0 +1,22 @@
+{
+  "name": "@map-planner/source",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "bun@1.3.8",
+  "workspaces": ["apps/*", "libs/*"],
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.0.0",
+    "tailwindcss": "^4.0.0",
+    "turbo": "^2.5.4",
+    "tw-animate-css": "^1.3.4"
+  },
+  "scripts": {
+    "dev": "turbo run dev --filter=@map-planner/web",
+    "build": "turbo run build --filter=@map-planner/web",
+    "storybook": "turbo run storybook --filter=@map-planner/storybook",
+    "build-storybook": "turbo run build-storybook --filter=@map-planner/storybook",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test"
+  }
+}
