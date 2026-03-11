@@ -17,7 +17,7 @@
       "devDependencies": {
         "@map-planner/core": "workspace:*",
         "@map-planner/ui": "workspace:*",
-        "@storybook/addon-a11y": "^8.6.12",
+        "@storybook/addon-a11y": "^10.2.17",
         "@storybook/addon-docs": "^8.6.12",
         "@storybook/addon-themes": "^8.6.12",
         "@storybook/react": "^10.2.17",
@@ -420,11 +420,9 @@
 
     "@rollup/rollup-win32-x64-msvc": ["@rollup/rollup-win32-x64-msvc@4.59.0", "", { "os": "win32", "cpu": "x64" }, "sha512-2HRCml6OztYXyJXAvdDXPKcawukWY2GpR5/nxKp4iBgiO3wcoEGkAaqctIbZcNB6KlUQBIqt8VYkNSj2397EfA=="],
 
-    "@storybook/addon-a11y": ["@storybook/addon-a11y@8.6.18", "", { "dependencies": { "@storybook/addon-highlight": "8.6.18", "@storybook/global": "^5.0.0", "@storybook/test": "8.6.18", "axe-core": "^4.2.0" }, "peerDependencies": { "storybook": "^8.6.18" } }, "sha512-LFvudttdIfDTNWprA8/N1vbiWbJRrNscyt2OP9Qwi85E1d3LKLy+e8AWiqY08gpy2OUYujK7AjxfpKtNeddrxw=="],
+    "@storybook/addon-a11y": ["@storybook/addon-a11y@10.2.17", "", { "dependencies": { "@storybook/global": "^5.0.0", "axe-core": "^4.2.0" }, "peerDependencies": { "storybook": "^10.2.17" } }, "sha512-J0ogEc4/XFC+Ytz+X1we6TOKreEk/shgUs/mtxdsLa0xJ6bp2n2OQPSjNtQHH/nK4SRBSfHWPm8ztfcXTzeG9w=="],
 
     "@storybook/addon-docs": ["@storybook/addon-docs@8.6.18", "", { "dependencies": { "@mdx-js/react": "^3.0.0", "@storybook/blocks": "8.6.18", "@storybook/csf-plugin": "8.6.18", "@storybook/react-dom-shim": "8.6.18", "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", "ts-dedent": "^2.0.0" }, "peerDependencies": { "storybook": "^8.6.18" } }, "sha512-55ADer0yNmmeR928Y3UAv3r4i7bJSd9LwywsQ+lRol/FNe0ZcwLEz31xL+jVsqQFNnDh/imsDIp8aYapGMtfEQ=="],
-
-    "@storybook/addon-highlight": ["@storybook/addon-highlight@8.6.18", "", { "dependencies": { "@storybook/global": "^5.0.0" }, "peerDependencies": { "storybook": "^8.6.18" } }, "sha512-wTFJ1DPM0C8gK6nGTJxH75byayQj7BPAz02fME4AOmT6clrBpVl1zSTFTkXaSr+k4xOfeMR/xNUfVskaXz6T9w=="],
 
     "@storybook/addon-themes": ["@storybook/addon-themes@8.6.18", "", { "dependencies": { "ts-dedent": "^2.0.0" }, "peerDependencies": { "storybook": "^8.6.18" } }, "sha512-v+Xcxo/XB2ayw9E/RygGOqUIaPOXp9XEFv6EF7DRt41/RQkQ846yJBARTC2cH8kCb+7FYcvDLD3GN/ms7i8wNg=="],
 
