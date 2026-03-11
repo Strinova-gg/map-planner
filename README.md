@@ -2,6 +2,13 @@
 
 Strinova Map Planner is a Bun-powered monorepo for building and previewing a browser-based strategy planner for Strinova maps. The main app lets users create local strategies, place and edit map objects on a canvas, and reopen saved plans from IndexedDB.
 
+## Notes
+- This was vibe-coded in like 4 hours. There probably are bugs, and usability issues
+- This application is currently a Tier-5 application. We offer no support and if you open a PR, it will not be prioitized. 
+  - Any issues opened will be moved to our linear backlog (un-prioitized)
+- This app will be moved to a Tier-3 application post stringify launch.
+- Feel free to make PRs.
+
 ## Workspace Layout
 
 - `apps/web`: Next.js application for the planner UI.
