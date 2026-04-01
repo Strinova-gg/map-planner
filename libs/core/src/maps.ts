@@ -5,7 +5,8 @@ export type MapSlug =
   | 'windy-town'
   | 'space-lab'
   | 'cauchy-district'
-  | 'cosmite';
+  | 'cosmite'
+  | 'ocarnus';
 
 export interface MapLabel {
   name: string;
@@ -169,6 +170,37 @@ export const MAPS: MapMeta[] = [
       { name: 'Sands Street', x: 0.772, y: 0.74 },
       { name: 'Reception', x: 0.25, y: 0.79 },
       { name: 'Main Entrance', x: 0.48, y: 0.85 },
+    ],
+  },
+  {
+    slug: 'ocarnus',
+    displayName: 'Ocarnus',
+    imagePath: '/minimaps/ocarnus.png',
+    coverImagePath: '/maps/ocarnus-cover.jpg',
+    accentColor: '#9e33be',
+    labels: [
+      { name: 'Side Hall', x: 0.307, y: 0.441 },
+      { name: 'Arena', x: 0.232, y: 0.3 },
+      { name: 'Platform', x: 0.246, y: 0.361 },
+      { name: 'Walkway', x: 0.17, y: 0.4 },
+      { name: 'Courtyard', x: 0.197, y: 0.528 },
+      { name: 'Shaft', x: 0.82, y: 0.43 },
+      { name: 'Breakable', x: 0.59, y: 0.495 },
+      { name: 'Archway', x: 0.303, y: 0.616 },
+      { name: 'Entrance', x: 0.385, y: 0.852 },
+      { name: 'Ramp', x: 0.555, y: 0.76 },
+      { name: 'Front Hall', x: 0.417, y: 0.62 },
+      { name: 'Main Cavern', x: 0.75, y: 0.647 },
+      { name: 'Secret', x: 0.57, y: 0.567 },
+      { name: 'Main Hall', x: 0.429, y: 0.438 },
+      { name: 'Corridor', x: 0.531, y: 0.349 },
+      { name: 'Quarantine', x: 0.606, y: 0.423 },
+      { name: 'Vent', x: 0.698, y: 0.439 },
+      { name: 'Small Cavern', x: 0.694, y: 0.296 },
+      { name: 'Plaza', x: 0.488, y: 0.193 },
+      { name: 'Tunnel', x: 0.345, y: 0.155 },
+      { name: 'Surveilance', x: 0.344, y: 0.233 },
+      { name: 'Back Hall', x: 0.392, y: 0.315 },
     ],
   },
 ];
