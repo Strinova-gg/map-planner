@@ -14,7 +14,7 @@
     "@map-planner/ui": "workspace:*",
     "@sentry/nextjs": "^10.0.0",
     "@xstate/react": "^6.1.0",
-    "lucide-react": "^0.563.0",
+    "lucide-react": "^1.8.0",
     "nanoid": "^5.0.9",
     "next": "^16.1.6",
     "react": "^19.0.0",
