@@ -47,31 +47,18 @@ function HeaderNavLinks() {
 }
 
 export function SiteHeader() {
-  const pathname = usePathname();
-  const isHomePage = pathname === '/';
-
-  if (isHomePage) {
-    return (
-      <header className="bg-background">
-        <div className="mx-auto flex w-full max-w-[1200px] items-center gap-4 px-4 py-4 sm:px-6">
-          <HeaderNavLinks />
-        </div>
-      </header>
-    );
-  }
-
   return (
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/75">
       <div className="mx-auto flex w-full max-w-[1200px] flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-6">
-        <Link
-          href="/"
+        <a
+          href={STRINOVA_SITE_ORIGIN}
           className="shrink-0 text-lg font-semibold tracking-tight transition-colors hover:text-primary"
         >
           Stringify
           <sup className="ml-1 align-super text-[0.55em] font-normal uppercase tracking-[0.18em] text-muted-foreground">
             [beta]
           </sup>
-        </Link>
+        </a>
         <HeaderNavLinks />
       </div>
     </header>
