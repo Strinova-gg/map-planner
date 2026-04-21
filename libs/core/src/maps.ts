@@ -6,7 +6,8 @@ export type MapSlug =
   | 'space-lab'
   | 'cauchy-district'
   | 'cosmite'
-  | 'ocarnus';
+  | 'ocarnus'
+  | 'lebrun-city';
 
 export interface MapLabel {
   name: string;
@@ -201,6 +202,28 @@ export const MAPS: MapMeta[] = [
       { name: 'Tunnel', x: 0.345, y: 0.155 },
       { name: 'Surveilance', x: 0.344, y: 0.233 },
       { name: 'Back Hall', x: 0.392, y: 0.315 },
+    ],
+  },
+  {
+    slug: 'lebrun-city',
+    displayName: 'Lebrun City',
+    imagePath: '/minimaps/lebrun-city.png',
+    coverImagePath: '/maps/lebrun-city-cover.png',
+    accentColor: '#d8e706',
+    labels: [
+      { name: 'Observation Terrace', x: 0.400, y: 0.088 },
+      { name: 'Border Zone', x: 0.597, y: 0.08 },
+      { name: 'Demolition Zone', x: 0.761, y: 0.194 },
+      { name: 'Sewer', x: 0.67, y: 0.32 },
+      { name: 'Old Residential Block', x: 0.814, y: 0.510 },
+      { name: 'Plaza', x: 0.508, y: 0.474 },
+      { name: 'VIP Lounge', x: 0.401, y: 0.41 },
+      { name: 'Demonstration Hall', x: 0.2, y: 0.287 },
+      { name: 'Planning Bureau', x: 0.22, y: 0.429 },
+      { name: 'Gallery Mall', x: 0.192, y: 0.626 },
+      { name: 'Aisle', x: 0.338, y: 0.882 },
+      { name: 'Soccer Field', x: 0.503, y: 0.849 },
+      { name: 'Market Square', x: 0.789, y: 0.771 },
     ],
   },
 ];
