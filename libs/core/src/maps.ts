@@ -200,7 +200,7 @@ export const MAPS: MapMeta[] = [
       { name: 'Small Cavern', x: 0.694, y: 0.296 },
       { name: 'Plaza', x: 0.488, y: 0.193 },
       { name: 'Tunnel', x: 0.345, y: 0.155 },
-      { name: 'Surveilance', x: 0.344, y: 0.233 },
+      { name: 'Surveillance', x: 0.344, y: 0.233 },
       { name: 'Back Hall', x: 0.392, y: 0.315 },
     ],
   },
