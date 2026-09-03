@@ -280,6 +280,7 @@ export const FACTIONS: ReadonlyArray<FactionMeta> = [
       { id: 'Eika', name: 'Eika' },
       { id: 'Fragrans', name: 'Fragrans' },
       { id: 'Mara', name: 'Mara' },
+      { id: 'Nora', name: 'Nora'},
     ],
   },
   {
