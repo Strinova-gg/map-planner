@@ -1,10 +1,12 @@
 'use client';
 
-import { Undo2, Redo2, Save, Download, CheckCircle, Loader2, Tag, House } from 'lucide-react';
+import { Undo2, Redo2, Save, Download, CheckCircle, Loader2, Tag, House, ArrowUpRight } from 'lucide-react';
 import { Button } from '../components/button';
 import { Input } from '../components/input';
 import { Tooltip, TooltipContent, TooltipTrigger } from '../components/tooltip';
 import { Separator } from '../components/separator';
+
+const STRINOVA_SITE_ORIGIN = 'https://strinova.gg';
 
 interface Props {
   title: string;
@@ -67,6 +69,16 @@ export function StrategyTopbar({
       />
 
       <div className="flex-1" />
+
+      <a
+        href={STRINOVA_SITE_ORIGIN}
+        className="flex h-8 items-center gap-1.5 px-1 text-sm font-medium transition-colors hover:text-primary"
+      >
+        Stringify
+        <ArrowUpRight size={14} aria-hidden="true" />
+      </a>
+
+      <Separator orientation="vertical" className="h-5" />
 
       {/* Undo / Redo */}
       <Tooltip>

@@ -32,6 +32,7 @@ export type CanvasEvent =
   | { type: 'MOUSE_MOVE'; x: number; y: number }
   | { type: 'MOUSE_UP'; x: number; y: number }
   | { type: 'OBJECT_CLICK'; id: string; multi: boolean }
+  | { type: 'SELECT_OBJECT'; id: string }
   | { type: 'CANVAS_CLICK' }
   | { type: 'CLEAR_PENDING_COMMIT' };
 
@@ -89,6 +90,9 @@ export const canvasMachine = setup({
         }
         return [event.id];
       },
+    }),
+    selectObject: assign({
+      selectedIds: ({ event }) => (event.type === 'SELECT_OBJECT' ? [event.id] : []),
     }),
     clearSelection: assign({ selectedIds: () => [] }),
     clearPendingCommit: assign({ pendingCommit: () => null }),
@@ -369,9 +373,11 @@ export const canvasMachine = setup({
     SET_CHARACTER: { actions: 'setCharacter' },
     SET_MARKER_VARIANT: { actions: 'setMarkerVariant' },
     CLEAR_PENDING_COMMIT: { actions: 'clearPendingCommit' },
+    SELECT_OBJECT: { actions: 'selectObject' },
     SELECT_TOOL: [
       {
-        guard: ({ event }) => event.type === 'SELECT_TOOL' && event.tool === 'select',
+        guard: ({ event }) =>
+          event.type === 'SELECT_TOOL' && (event.tool === 'select' || event.tool === 'eraser'),
         target: '.idle',
         actions: 'setTool',
       },

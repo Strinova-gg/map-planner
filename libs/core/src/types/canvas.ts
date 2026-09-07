@@ -1,5 +1,6 @@
 export type ToolMode =
   | 'select'
+  | 'eraser'
   | 'arrow'
   | 'line'
   | 'freehand'
