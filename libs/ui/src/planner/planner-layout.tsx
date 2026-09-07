@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useCallback, useState } from 'react';
+import { useRef, useEffect, useCallback, useState } from 'react';
 import type Konva from 'konva';
 import type { CanvasObject, ToolMode, MarkerVariant, CharacterTeam } from '@map-planner/core';
 import type { StrategyMode, Half } from '@map-planner/core';
@@ -54,6 +54,7 @@ interface Props {
   onMouseMove: (x: number, y: number) => void;
   onMouseUp: (x: number, y: number) => void;
   onObjectClick: (id: string, multi: boolean) => void;
+  onEraseObjects: (ids: string[]) => void;
   onCanvasClick: () => void;
 
   // Strategy machine dispatchers
@@ -107,6 +108,7 @@ export function PlannerLayout({
   onMouseMove,
   onMouseUp,
   onObjectClick,
+  onEraseObjects,
   onCanvasClick,
   onTitleChange,
   onUndo,
@@ -125,11 +127,23 @@ export function PlannerLayout({
   onSelectPlan,
 }: Props) {
   const stageRef = useRef<Konva.Stage>(null);
+  const canvasAreaRef = useRef<HTMLDivElement>(null);
   const [zoom, setZoom] = useState(1.0);
   const [showLabels, setShowLabels] = useState(true);
   const [hoverCoords, setHoverCoords] = useState<{ x: number; y: number } | null>(null);
+  const [canvasSize, setCanvasSize] = useState({ width: 0, height: 0 });
 
   const mapMeta = MAPS.find((m) => m.slug === mapSlug);
+
+  useEffect(() => {
+    const element = canvasAreaRef.current;
+    if (!element) return;
+    const observer = new ResizeObserver(([entry]) => {
+      setCanvasSize({ width: entry.contentRect.width, height: entry.contentRect.height });
+    });
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
 
   const handleExportPng = useCallback(() => {
     if (!stageRef.current) return;
@@ -178,7 +192,11 @@ export function PlannerLayout({
         <div className="flex flex-1 overflow-hidden">
           <ToolToolbar
             currentTool={tool}
+            canUndo={canUndo}
+            canRedo={canRedo}
             onToolSelect={onToolSelect}
+            onUndo={onUndo}
+            onRedo={onRedo}
             activeColor={activeColor}
             activeFill={activeFill}
             activeStrokeWidth={activeStrokeWidth}
@@ -189,6 +207,7 @@ export function PlannerLayout({
 
           {/* Canvas area */}
           <div
+            ref={canvasAreaRef}
             className="relative flex flex-1 items-center justify-center overflow-auto bg-[#0a0a0a]"
             onWheel={handleWheel}
           >
@@ -201,6 +220,8 @@ export function PlannerLayout({
             >
               <StrategyCanvas
                 mapImagePath={mapMeta?.imagePath ?? ''}
+                workspaceWidth={canvasSize.width}
+                workspaceHeight={canvasSize.height}
                 labels={mapMeta?.labels}
                 showLabels={showLabels}
                 objects={objects}
@@ -211,6 +232,7 @@ export function PlannerLayout({
                 onMouseMove={onMouseMove}
                 onMouseUp={onMouseUp}
                 onObjectClick={onObjectClick}
+                onEraseObjects={onEraseObjects}
                 onCanvasClick={onCanvasClick}
                 onObjectDragEnd={handleObjectDragEnd}
                 onTransformEnd={onTransformObject}

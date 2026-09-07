@@ -66,7 +66,8 @@ export function PlannerProvider({ strategyId }: Props) {
     if (isCustomMode) {
       canvasSend({ type: 'SELECT_TOOL', tool: 'select' });
     }
-    
+
+    canvasSend({ type: 'SELECT_OBJECT', id: pending.id });
     canvasSend({ type: 'CLEAR_PENDING_COMMIT' });
   }, [canvasState.context.pendingCommit, activeObjects, sCtx.mode, strategySend, canvasSend]);
 
@@ -106,6 +107,13 @@ export function PlannerProvider({ strategyId }: Props) {
       canvasSend({ type: 'SELECT_TOOL', tool: 'select' });
     },
     [strategySend, canvasSend],
+  );
+
+  const handleEraseObjects = useCallback(
+    (ids: string[]) => {
+      strategySend({ type: 'DELETE_OBJECTS', ids });
+    },
+    [strategySend],
   );
 
   const handleSelectCharacter = useCallback(
@@ -150,7 +158,11 @@ export function PlannerProvider({ strategyId }: Props) {
       onMouseDown={(x, y) => canvasSend({ type: 'MOUSE_DOWN', x, y })}
       onMouseMove={(x, y) => canvasSend({ type: 'MOUSE_MOVE', x, y })}
       onMouseUp={(x, y) => canvasSend({ type: 'MOUSE_UP', x, y })}
-      onObjectClick={(id, multi) => canvasSend({ type: 'OBJECT_CLICK', id, multi })}
+      onObjectClick={(id, multi) => {
+        if (ctx.tool === 'eraser') return;
+        canvasSend({ type: 'OBJECT_CLICK', id, multi });
+      }}
+      onEraseObjects={handleEraseObjects}
       onCanvasClick={() => canvasSend({ type: 'CANVAS_CLICK' })}
       // Strategy dispatchers
       onTitleChange={(title) => strategySend({ type: 'SET_TITLE', title })}

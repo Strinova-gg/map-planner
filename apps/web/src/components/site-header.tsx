@@ -47,6 +47,10 @@ function HeaderNavLinks() {
 }
 
 export function SiteHeader() {
+  const pathname = usePathname();
+
+  if (pathname.startsWith('/planner/')) return null;
+
   return (
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/75">
       <div className="mx-auto flex w-full max-w-[1200px] flex-wrap items-center justify-between gap-4 px-4 py-4 sm:px-6">

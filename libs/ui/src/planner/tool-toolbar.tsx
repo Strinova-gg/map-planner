@@ -2,6 +2,9 @@
 
 import {
   MousePointer2,
+  Eraser,
+  Undo2,
+  Redo2,
   ArrowRight,
   Minus,
   Pencil,
@@ -64,12 +67,20 @@ interface StyleControlsProps {
 
 interface ToolToolbarProps extends StyleControlsProps {
   currentTool: ToolMode;
+  canUndo: boolean;
+  canRedo: boolean;
   onToolSelect: (tool: ToolMode) => void;
+  onUndo: () => void;
+  onRedo: () => void;
 }
 
 export function ToolToolbar({
   currentTool,
+  canUndo,
+  canRedo,
   onToolSelect,
+  onUndo,
+  onRedo,
   activeColor,
   activeFill,
   activeStrokeWidth,
@@ -79,6 +90,7 @@ export function ToolToolbar({
 }: ToolToolbarProps) {
   const tools: Array<{ tool: ToolMode; icon: React.ReactNode; label: string; kbd?: string }> = [
     { tool: 'select', icon: <MousePointer2 size={16} />, label: 'Select', kbd: 'V' },
+    { tool: 'eraser', icon: <Eraser size={16} />, label: 'Eraser' },
     { tool: 'arrow', icon: <ArrowRight size={16} />, label: 'Arrow', kbd: 'A' },
     { tool: 'line', icon: <Minus size={16} />, label: 'Line', kbd: 'L' },
     { tool: 'freehand', icon: <Pencil size={16} />, label: 'Freehand', kbd: 'F' },
@@ -93,6 +105,40 @@ export function ToolToolbar({
 
   return (
     <div className="flex h-full flex-col items-center gap-1 border-r border-border bg-card p-2">
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-9 w-9"
+            disabled={!canUndo}
+            onClick={onUndo}
+            aria-label="Undo"
+          >
+            <Undo2 size={16} />
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent side="right">Undo (Ctrl+Z)</TooltipContent>
+      </Tooltip>
+
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-9 w-9"
+            disabled={!canRedo}
+            onClick={onRedo}
+            aria-label="Redo"
+          >
+            <Redo2 size={16} />
+          </Button>
+        </TooltipTrigger>
+        <TooltipContent side="right">Redo (Ctrl+Y)</TooltipContent>
+      </Tooltip>
+
+      <Separator className="my-1" />
+
       {tools.map((t, i) => (
         <div key={t.tool}>
           {(i === 1 || i === 7) && <Separator className="my-1" />}
